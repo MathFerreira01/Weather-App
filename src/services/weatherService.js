@@ -67,6 +67,7 @@ const formatForecastWeather = (data) => {
 
 const getFormattedWeatherData = async (searchParams) => {
   const formattedCurrentWeather = await getWeatherData(
+    
     "weather",
     searchParams
   ).then(formatCurrentWeather);
@@ -79,7 +80,6 @@ const getFormattedWeatherData = async (searchParams) => {
     exclude: "current,minutely,alerts",
     units: searchParams.units,
   }).then(formatForecastWeather);
-
   return { ...formattedCurrentWeather, ...formattedForecastWeather };
 };
 
@@ -91,6 +91,7 @@ const formatToLocalTime = (
 
 const iconUrlFromCode = (code) =>
   `http://openweathermap.org/img/wn/${code}@2x.png`;
+  
 
 export default getFormattedWeatherData;
 
